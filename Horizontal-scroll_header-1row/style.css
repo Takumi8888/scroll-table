@@ -1,0 +1,37 @@
+body {
+  margin: 10px;
+}
+
+.scrolltable {
+  border: 1px solid #333333;
+  height: 400px;
+  overflow-x: auto;
+}
+.scrolltable table {
+  border-collapse: separate;
+  border-spacing: 0;
+  empty-cells: show;
+  width: 1450px;
+}
+.scrolltable table th,
+.scrolltable table td {
+  padding: 0.5rem;
+}
+.scrolltable table th,
+.scrolltable table td {
+  border-right: 1px solid #008800;
+  border-bottom: 1px solid #008800;
+}
+.scrolltable table th:first-of-type,
+.scrolltable table td:first-of-type {
+  border-left: 1px solid #008800;
+}
+.scrolltable table thead th {
+  border-top: 1px solid #008800;
+}
+.scrolltable table th:first-of-type,
+.scrolltable table td:first-of-type {
+  position: sticky;
+  left: 0;
+  background: #ffcc99;
+}/*# sourceMappingURL=style.css.map */

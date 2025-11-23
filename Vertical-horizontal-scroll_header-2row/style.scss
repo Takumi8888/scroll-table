@@ -1,0 +1,94 @@
+body {
+  margin: 10px;
+}
+
+.scrolltable {
+  border: 1px solid #333333;
+
+  //スクロールさせるエリアは高さ400pxとする。overflow-x:auto;overflow-y:auto;で必要に応じてスクロールバー
+  height: 400px;
+  overflow-x: auto;
+  overflow-y: auto;
+
+  table {
+
+    border-collapse: separate;
+    border-spacing: 0;
+    empty-cells: show;
+
+    //横スクロールの場合はtableの幅を指定する（左1列目の幅を加算）
+    width: calc(1450px + 40px);
+
+    th,
+    td {
+      padding: 0.5rem;
+    }
+
+    //隣接するborderが重ならないように
+    th,
+    td {
+      border-right: 1px solid #008800;
+      border-bottom: 1px solid #008800;
+
+      &:first-of-type {
+        border-left: 1px solid #008800;
+      }
+    }
+
+    thead tr:first-of-type th {
+      border-top: 1px solid #008800;
+    }
+
+    thead tr:last-of-type th {
+      border-left: none;
+    }
+
+    //タイトル行1行目固定
+    //タイトル行1行目の左1列目（縦横スクロールしても動かない部分）
+    thead tr:first-of-type th:first-of-type {
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 10; //縦横スクロールしても隠れないように
+      background: #ff99cc; //ピンク
+    }
+
+    //タイトル行1行目の左2列目（縦横スクロールしても動かない部分）
+    thead tr:first-of-type th:nth-of-type(2) {
+      position: sticky;
+      top: 0;
+      left: 40px;
+      z-index: 10; //縦横スクロールしても隠れないように
+      background: #ffcc00; //ゴールド
+    }
+
+    //タイトル行1行目の左1列目2列目以外
+    thead tr:first-of-type th:not(:first-of-type, :nth-of-type(2)) {
+      position: sticky;
+      top: 0;
+      background: #99ccff; //青
+    }
+
+    //タイトル行2行目
+    thead tr:not(:first-of-type) th {
+      position: sticky;
+      top: 36px; //1行目の高さ
+      background: #ccffff; //水色
+    }
+
+    //左1列固定（タイトル行以外）
+    td:first-of-type {
+      position: sticky;
+      left: 0;
+      width: 40px; //1列目の幅を指定
+      background: #ffcc99; //ベージュ
+    }
+
+    //左2列目固定（タイトル行以外）
+    td:nth-of-type(2) {
+      position: sticky;
+      left: 40px; //1列目の幅と同じだけ
+      background: #ffff99; //黄色
+    }
+  }
+}

@@ -1,0 +1,41 @@
+body {
+  margin: 10px;
+}
+
+.scrolltable {
+  border: 1px solid #333333;  //枠線
+  height: 400px;                //スクロールさせるエリアは高さ400pxとする★
+  overflow-y: auto;             //縦方向にスクロールバーを表示★
+
+  table {
+    border-collapse: separate;  //セルのborderが重ならないように
+    border-spacing: 0;          //セルの隙間をなくす
+    empty-cells: show;          //空セルも罫線を表示
+
+    th,
+    td {
+      padding: 0.5rem;         //セル内余白
+    }
+
+    //隣接するborderが重ならないように
+    th,
+    td {
+      border-right: 1px solid #008800;    //枠線：緑
+      border-bottom: 1px solid #008800;   //枠線：緑
+      &:first-of-type {
+        border-left: 1px solid #008800;  //枠線：緑
+      }
+    }
+
+    thead th {
+      border-top: 1px solid #008800;  //枠線：緑
+    }
+
+    //タイトル行1行固定
+    thead {
+      position: sticky;       //位置を固定★
+      top: 0;                 //上端に固定★
+      background: #99ccff;  //青
+    }
+  }
+}

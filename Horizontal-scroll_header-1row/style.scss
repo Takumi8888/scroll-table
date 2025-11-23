@@ -1,0 +1,48 @@
+body {
+  margin: 10px;
+}
+
+.scrolltable {
+  border: 1px solid #333333;
+
+  //スクロールさせるエリアは高さ400pxとする。overflow-x:auto;で必要に応じてスクロールバー
+  height: 400px;
+  overflow-x: auto;
+
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+    empty-cells: show;
+
+    //横スクロールの場合はtableの幅を指定する
+    width: 1450px;
+
+    th,
+    td {
+      padding: 0.5rem;
+    }
+
+    //隣接するborderが重ならないように
+    th,
+    td {
+      border-right: 1px solid #008800;
+      border-bottom: 1px solid #008800;
+
+      &:first-of-type {
+        border-left: 1px solid #008800;
+      }
+    }
+
+    thead th {
+      border-top: 1px solid #008800;
+    }
+
+    //左1列固定
+    th:first-of-type,
+    td:first-of-type {
+      position: sticky;
+      left: 0;
+      background: #ffcc99; //ベージュ
+    }
+  }
+}
